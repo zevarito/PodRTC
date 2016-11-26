@@ -1,0 +1,8 @@
+/*
+!.gitignore
+!WebRTC.framework
+!README.md
+!RELEASE_LOG
+!LICENSE*
+!PodRTC.podspec
+!patches
