@@ -1,3 +1,26 @@
+- 58.16.0.0
+
+commit 5bb66b6e65e11c5031893f731b722d0d7f06c09c
+Author: ilnik <ilnik@webrtc.org>
+Date:   Tue Apr 4 12:15:14 2017 -0700
+
+Use simulcast for screenshare only in conference mode
+
+Also, don't crash if InitEncode fails for vp8.
+
+BUG=chromium:705505
+NOTRY=true
+NOPRESUBMIT=true
+
+Review-Url: https://codereview.webrtc.org/2779163002
+Cr-Commit-Position: refs/heads/master@{#17452}
+(cherry picked from commit fe627f30cbd3b4e0665237c7f309973cbf15e30b)
+
+Review-Url: https://codereview.webrtc.org/2795043004
+Cr-Commit-Position: refs/branch-heads/58@{#16}
+Cr-Branched-From: f31969a584bcafe9406c214a9d4c3afb49d19650-refs/heads/master@{#16937}
+
+
 - 56.17541.0.0
 
 commit c88b5d56ada5690ae352062e69a9f984a07d228c
