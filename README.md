@@ -5,6 +5,10 @@
 [WebRTC](http://webrtc.org) is a free, open project that provides browsers and mobile applications with
 Real-Time Communications.
 
+## Current "stable" version
+
+`56.17541.0.0`
+
 ## Usage
 
 Update your `Podfile` with the following line:
