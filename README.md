@@ -5,9 +5,21 @@
 [WebRTC](http://webrtc.org) is a free, open project that provides browsers and mobile applications with
 Real-Time Communications.
 
+## Releases
+
+[Check available releases here](https://github.com/zevarito/PodRTC/releases)
+
 ## Current "stable" version
 
-`56.17541.0.0`
+There is not concept of stable version just WebRTC revision builds. Also not necessary the latest
+build either the biggest revision number or last build made should be considered the best revision
+to use.
+
+Instead a `you might want to try first` revision/version will be provided but not guarantee that
+it will be often updated. Now that revision/version is `56.17541.0.0`
+
+If you think certain revision should be included please open an issue providing revision number
+and a brief description about why that revision should be build.
 
 ## Usage
 

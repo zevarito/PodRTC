@@ -1,3 +1,28 @@
+- 57.17541.0.0
+
+commit c88b5d56ada5690ae352062e69a9f984a07d228c
+Author: kjellander <kjellander@webrtc.org>
+Date:   Wed Apr 5 06:42:43 2017 -0700
+
+Reland of PyLint fixes for tools-webrtc and webrtc/tools (patchset #1 id:1 of https://codereview.webrtc.org/2737233003/ )
+
+Reason for revert:
+Fixing errors for reland. I have tested that this does not make Chromium video quality tests fail.
+
+Original issue's description:
+> Revert of PyLint fixes for tools-webrtc and webrtc/tools (patchset #3 id:40001 of https://codereview.webrtc.org/2736233003/ )
+>
+> Reason for revert:
+> Fails video quality tests in Chrome:  http://build.chromium.org/p/chromium.webrtc.fyi/builders/Win10%20Tester/builds/6568
+> I should have looked more closer at those :(
+...
+
+NOTRY=true
+BUG=webrtc:7312
+
+Review-Url: https://codereview.webrtc.org/2741733003
+Cr-Commit-Position: refs/heads/master@{#17541}
+
 - 58.16.0.0
 
 commit 5bb66b6e65e11c5031893f731b722d0d7f06c09c

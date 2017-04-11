@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PodRTC"
-  s.version      = "58.16.0.0"
+  s.version      = "57.17541.0.0"
   s.summary      = "WebRTC for iOS"
   s.description  = <<-DESC
     PodRTC is an unofficial build of WebRTC for IOS platform bundled in this Cocoapod.
