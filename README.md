@@ -11,25 +11,15 @@ Real-Time Communications.
 
 ## Current "stable" version
 
-There is not concept of stable version just WebRTC revision builds. Also not necessary the latest
-build either the biggest revision number or last build made should be considered the best revision
-to use.
-
-Instead a `you might want to try first` revision/version will be provided but not guarantee that
-it will be often updated. Now that revision/version is `56.17541.0.0`
-
-If you think certain revision should be included please open an issue providing revision number
-and a brief description about why that revision should be build.
+There are no concept of stable version just WebRTC revision builds.
+Notice that not necessary the latest build, either the biggest revision number
+or last build from master should be considered the best revision to use.
 
 ## Usage
 
 Update your `Podfile` with the following line:
 
-`pod "PodRTC"`
-
-or in his versioned form
-
-`pod "PodRTC", "56.15101.0.0"`
+`pod "PodRTC", "56.17541.0.0"`
 
 ##### Chosing version and builds:
 

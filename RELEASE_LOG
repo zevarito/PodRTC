@@ -1,3 +1,30 @@
+- 58.19.0.1 CVE
+
+CVE fixes. Important!
+[679306] High CVE-2017-5068: Race condition in WebRTC. Credit to Philipp Hancke.
+https://bugs.chromium.org/p/chromium/issues/detail?id=679306
+
+commit 6c9caaad7dfdea48a72a691d760ea0d89cb64816
+Author: Zijie He <zijiehe@chromium.org>
+Date:   Mon May 1 10:48:00 2017 -0700
+
+    Check if the order of frames becomes ambiguous if we were to insert the incoming frame, and if so, clear the FrameBuffer.
+
+    On behalf of Philip Eliasson (philipel@webrtc.org).
+
+    BUG=chromium:679306
+
+    Review-Url: https://codereview.webrtc.org/2830723002
+    Cr-Commit-Position: refs/heads/master@{#17785}
+    (cherry picked from commit 146a48b0fabef7e74f2a2b62fb5cb45f9b393408)
+
+    Review-Url: https://codereview.webrtc.org/2848283002 .
+    Cr-Commit-Position: refs/branch-heads/58@{#19}
+    Cr-Branched-From: f31969a584bcafe9406c214a9d4c3afb49d19650-refs/heads/master@{#16937}
+
+patches/58.19.0.1-issue2833833002_1_10001.diff
+Enable builds with xcode 8.3.x.
+
 - 57.17541.0.0
 
 commit c88b5d56ada5690ae352062e69a9f984a07d228c

@@ -46,11 +46,6 @@ RTC_EXPORT
 - (RTCAVFoundationVideoSource *)avFoundationVideoSourceWithConstraints:
     (nullable RTCMediaConstraints *)constraints;
 
-/** Initialize a generic RTCVideoSource. The RTCVideoSource should be passed to a RTCVideoCapturer
- *  implementation, e.g. RTCCameraVideoCapturer, in order to produce frames.
- */
-- (RTCVideoSource *)videoSource;
-
 /** Initialize an RTCVideoTrack with a source and an id. */
 - (RTCVideoTrack *)videoTrackWithSource:(RTCVideoSource *)source
                                 trackId:(NSString *)trackId;
