@@ -1,3 +1,28 @@
+- 59.13.0.1
+
+commit ab7f856fa72a531fa5b9bdafbcc83de21888589e
+Author: Sergey Ulanov <sergeyu@chromium.org>
+Date:   Mon May 22 12:48:23 2017 -0700
+
+    Update Packet::GetHeader() to copy playout_delay
+
+    Packet::GetHeader() wasn't copying playout_delay. As result
+    playout_delay was ignored when flexfec is enabled.
+
+    Patch by Rob McCool <rmccool@google.com>
+
+    BUG=webrtc:7590
+
+    Review-Url: https://codereview.webrtc.org/2899553003
+    Cr-Commit-Position: refs/heads/master@{#18218}
+    (cherry picked from commit b2c001a79542050d69fa916199f51d5d98626f21)
+
+    BUG=chromium:722490
+
+    Review-Url: https://codereview.webrtc.org/2898813002 .
+    Cr-Commit-Position: refs/branch-heads/59@{#13}
+    Cr-Branched-From: 10d095d4f743bc16f8e486e156c48a6d023b32c5-refs/heads/master@{#17657}
+
 - 58.19.0.1 CVE
 
 CVE fixes. Important!
