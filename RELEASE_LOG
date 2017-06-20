@@ -1,3 +1,24 @@
+- 60.4.0.1 - Patched
+
+patch: 60.4.0.1-issue7703.diff
+
+commit b38e60ca061f05ed8fe9c461366d7f1a18d4c152
+Author: stefan <stefan@webrtc.org>
+Date:   Tue Jun 20 02:35:53 2017 -0700
+
+    Validate references of frames inserted into FrameBuffer2.
+
+    BUG=chromium:730603
+
+    NOPRESUBMIT=true
+    NOTRY=true
+
+    Review-Url: https://codereview.webrtc.org/2937243002
+    Cr-Original-Commit-Position: refs/heads/master@{#18614}
+    Review-Url: https://codereview.webrtc.org/2948733002
+    Cr-Commit-Position: refs/branch-heads/60@{#4}
+    Cr-Branched-From: c61bf947b4ac31f3500858ffcae6fee39d799930-refs/heads/master@{#18252}
+
 - 59.13.0.1
 
 commit ab7f856fa72a531fa5b9bdafbcc83de21888589e

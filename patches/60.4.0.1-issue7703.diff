@@ -1,0 +1,26 @@
+diff --git a/webrtc/base/network.cc b/webrtc/base/network.cc
+index 69dc28ccd..c43856a07 100644
+--- a/webrtc/base/network.cc
++++ b/webrtc/base/network.cc
+@@ -93,7 +93,7 @@ bool SortNetworks(const Network* a, const Network* b) {
+   // TODO(mallinath) - Add VPN and Link speed conditions while sorting.
+ 
+   // Networks are sorted last by key.
+-  return a->key() > b->key();
++  return a->key() < b->key();
+ }
+ 
+ std::string AdapterTypeToString(AdapterType type) {
+diff --git a/webrtc/base/networkmonitor.h b/webrtc/base/networkmonitor.h
+index 72b07b449..3c739b261 100644
+--- a/webrtc/base/networkmonitor.h
++++ b/webrtc/base/networkmonitor.h
+@@ -29,7 +29,7 @@ enum class NetworkBindingResult {
+ 
+ enum AdapterType {
+   // This enum resembles the one in Chromium net::ConnectionType.
+-  ADAPTER_TYPE_UNKNOWN = 0,
++  ADAPTER_TYPE_UNKNOWN = 1 << 5,
+   ADAPTER_TYPE_ETHERNET = 1 << 0,
+   ADAPTER_TYPE_WIFI = 1 << 1,
+   ADAPTER_TYPE_CELLULAR = 1 << 2,
