@@ -1,3 +1,8 @@
+- 60.4.0.2 - Patched - Disable IPv6
+
+patch: 60.4.0.1-issue7703.diff
+patch: 60.4.0.2-issue7703-disable-ipv6.diff
+
 - 60.4.0.1 - Patched
 
 patch: 60.4.0.1-issue7703.diff
