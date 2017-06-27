@@ -1,3 +1,5 @@
+- 60.4.0.3 - Enable VP9
+
 - 60.4.0.2 - Patched - Disable IPv6
 
 patch: 60.4.0.1-issue7703.diff
