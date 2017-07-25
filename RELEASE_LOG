@@ -1,3 +1,26 @@
+- 60.10.0.1 - Exposed RTCAudioSession
+
+commit c4df5f8f2e7c5d5169f2867d3515705c8ab8c317
+Author: minyue <minyue@webrtc.org>
+Date:   Thu Jul 20 15:35:23 2017 -0700
+
+    Merge "Set memory to all-zero floats in ExtractExtendedBlock in AEC2 if buffer is empty."
+
+    This avoids a memcopy call which may corrupt audio handling and, in rare cases, crash WebRTC with a buffer over-read.
+
+    BUG=webrtc:7845
+    TBR=saza@webrtc.org
+    NOTRY=true
+    NOPRESUBMIT=true
+
+    Review-Url(original): https://codereview.webrtc.org/2980723002
+    Cr-Commit-Position(original): refs/heads/master@{#18984}
+    (cherry picked from commit f91b0b49f911a3c3996b19e7e6b31f5e982af650)
+
+    Review-Url: https://codereview.webrtc.org/2984753002
+    Cr-Commit-Position: refs/branch-heads/60@{#10}
+    Cr-Branched-From: c61bf947b4ac31f3500858ffcae6fee39d799930-refs/heads/master@{#18252}
+
 - 60.4.0.3 - Enable VP9
 
 - 60.4.0.2 - Patched - Disable IPv6

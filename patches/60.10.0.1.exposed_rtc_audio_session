@@ -1,0 +1,5 @@
+Added headers:
+
+- WebRTC.framework/Headers/RTCAudioSession.h
+- WebRTC.framework/Headers/RTCAudioSessionConfiguration.h
+- WebRTC.framework/Headers/RTCAudioSessionDelegateAdapter.h
