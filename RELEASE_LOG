@@ -1,3 +1,27 @@
+- 61.2.0.1
+
+Patches:
+- 61.2.0.1-issue7703-4cd599f02504e32224a688434db6d43f5c892167
+  source: https://bugs.chromium.org/p/webrtc/issues/detail?id=7703#c28
+
+Revision:
+commit b0406b07dec68d05bfa223160983c24609ac1df5
+Author: jbudorick <jbudorick@chromium.org>
+Date:   Mon Jul 31 08:53:09 2017 -0700
+
+    Add gn dependency between ana_debug_dump_proto and ana_config_proto.
+
+    Merging 58f1725ff1feeb665aaa1bc222e6d36148d8fcb7 to 61.
+
+    NOTRY=true  # merging to branch
+    NOPRESUBMIT=true  # merging to branch
+    TBR=minyue@webrtc.org
+    BUG=chromium:746106
+
+    Review-Url: https://codereview.webrtc.org/2984293002
+    Cr-Commit-Position: refs/branch-heads/61@{#2}
+    Cr-Branched-From: 83dc6b6f5380d7c03f5ebfe2553bf4a3147e2d1c-refs/heads/master@{#19063}
+
 - 60.4.0.3 - Enable VP9
 
 - 60.4.0.2 - Patched - Disable IPv6

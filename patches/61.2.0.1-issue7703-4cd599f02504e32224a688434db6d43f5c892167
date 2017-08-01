@@ -1,0 +1,82 @@
+commit 4cd599f02504e32224a688434db6d43f5c892167
+Author: deadbeef <deadbeef@webrtc.org>
+Date:   Thu Jul 27 15:05:29 2017 -0700
+
+    If adapter type is unknown and interface name is "ipsec", treat as VPN.
+    
+    This will result in the ipsec interfaces being prioritized below Wi-Fi
+    and cell interfaces. This makes the most difference when we hit the
+    default limit for IPv6 interfaces (5), and there are lots of ipsec
+    interfaces for whatever reason, resulting in the "real" interfaces that
+    would actually succeed not being used. See the linked bug 7703.
+    
+    BUG=webrtc:7703, webrtc:3149
+    
+    Review-Url: https://codereview.webrtc.org/2985133002
+    Cr-Commit-Position: refs/heads/master@{#19175}
+
+diff --git a/webrtc/rtc_base/network.cc b/webrtc/rtc_base/network.cc
+index 26d6520e2..f2a1b87e3 100644
+--- a/webrtc/rtc_base/network.cc
++++ b/webrtc/rtc_base/network.cc
+@@ -785,6 +785,9 @@ AdapterType BasicNetworkManager::GetAdapterTypeFromName(
+       return type;
+     }
+   }
++  if (strncmp(network_name, "ipsec", 5) == 0) {
++    return ADAPTER_TYPE_VPN;
++  }
+ #if defined(WEBRTC_IOS)
+   // Cell networks are pdp_ipN on iOS.
+   if (strncmp(network_name, "pdp_ip", 6) == 0) {
+diff --git a/webrtc/rtc_base/network_unittest.cc b/webrtc/rtc_base/network_unittest.cc
+index 521e3dc9e..b5c5912aa 100644
+--- a/webrtc/rtc_base/network_unittest.cc
++++ b/webrtc/rtc_base/network_unittest.cc
+@@ -828,11 +828,17 @@ TEST_F(NetworkTest, TestGetAdapterTypeFromNameMatching) {
+   std::string ipv6_mask = "FFFF:FFFF:FFFF:FFFF::";
+   BasicNetworkManager manager;
+ 
+-#if defined(WEBRTC_IOS)
+-  char if_name[20] = "pdp_ip0";
++  // IPSec interface; name is in form "ipsec<index>".
++  char if_name[20] = "ipsec11";
+   ifaddrs* addr_list =
+       InstallIpv6Network(if_name, ipv6_address1, ipv6_mask, manager);
++  EXPECT_EQ(ADAPTER_TYPE_VPN, GetAdapterType(manager));
++  ClearNetworks(manager);
++  ReleaseIfAddrs(addr_list);
+ 
++#if defined(WEBRTC_IOS)
++  strcpy(if_name, "pdp_ip0");
++  addr_list = InstallIpv6Network(if_name, ipv6_address1, ipv6_mask, manager);
+   EXPECT_EQ(ADAPTER_TYPE_CELLULAR, GetAdapterType(manager));
+   ClearNetworks(manager);
+   ReleaseIfAddrs(addr_list);
+@@ -844,10 +850,8 @@ TEST_F(NetworkTest, TestGetAdapterTypeFromNameMatching) {
+   ReleaseIfAddrs(addr_list);
+ 
+ #elif defined(WEBRTC_ANDROID)
+-  char if_name[20] = "rmnet0";
+-  ifaddrs* addr_list =
+-      InstallIpv6Network(if_name, ipv6_address1, ipv6_mask, manager);
+-
++  strcpy(if_name, "rmnet0");
++  addr_list = InstallIpv6Network(if_name, ipv6_address1, ipv6_mask, manager);
+   EXPECT_EQ(ADAPTER_TYPE_CELLULAR, GetAdapterType(manager));
+   ClearNetworks(manager);
+   ReleaseIfAddrs(addr_list);
+@@ -864,9 +868,10 @@ TEST_F(NetworkTest, TestGetAdapterTypeFromNameMatching) {
+   ClearNetworks(manager);
+   ReleaseIfAddrs(addr_list);
+ #else
+-  char if_name[20] = "wlan0";
+-  ifaddrs* addr_list =
+-      InstallIpv6Network(if_name, ipv6_address1, ipv6_mask, manager);
++  // TODO(deadbeef): If not iOS or Android, "wlan0" should be treated as
++  // "unknown"? Why? This should be fixed if there's no good reason.
++  strcpy(if_name, "wlan0");
++  addr_list = InstallIpv6Network(if_name, ipv6_address1, ipv6_mask, manager);
+ 
+   EXPECT_EQ(ADAPTER_TYPE_UNKNOWN, GetAdapterType(manager));
+   ClearNetworks(manager);
