@@ -1,3 +1,27 @@
+- 61.4.0.0
+
+commit 371062bf35921ebeb33b3a66cdf58d1028d8e9a9
+Author: philipel <philipel@webrtc.org>
+Date:   Mon Aug 14 16:51:55 2017 +0200
+
+    Workaround for PacketBuffer bug.
+
+    This is a merge to M61.
+
+    There exist a bug in the video_coding::PacketBuffer which triggers when a
+    frame is the same size as the buffer. A trivial workaround is to increase
+    the start size to something big so that this never happens in practice.
+
+    The bug has been fixed but to avoid non-trivial merges we use this
+    workaround instead for M61.
+
+    BUG=webrtc:8028, chromium:752886
+    R=stefan@webrtc.org
+
+    Review-Url: https://codereview.webrtc.org/3000653002 .
+    Cr-Commit-Position: refs/branch-heads/61@{#4}
+    Cr-Branched-From: 83dc6b6f5380d7c03f5ebfe2553bf4a3147e2d1c-refs/heads/master@{#19063}
+
 - 61.2.0.1
 
 Patches:
