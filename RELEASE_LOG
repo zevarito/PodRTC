@@ -1,3 +1,27 @@
+- 65.8.0.0
+
+commit 7ee493622bb721cc14bf45edf22a69118402f971
+Author: philipel <philipel@webrtc.org>
+Date:   Fri Jan 26 15:10:57 2018 +0100
+
+    Don't overwrite RTP packets in history within one second or 3x RTT.
+
+    This prevents us from prematurely overwriting the packets in the history
+    if the RTT is underestimated.
+
+    (cherry picked from commit 788ac70c1f8a34bf375b09dee69a4e7d547dc4f9)
+
+    Bug: webrtc:8766
+    Change-Id: I042e8ce74cdce2a0451596f4217779fc856b51f4
+    Reviewed-on: https://webrtc-review.googlesource.com/42960
+    Commit-Queue: Erik Språng <sprang@webrtc.org>
+    Reviewed-by: Danil Chapovalov <danilchap@webrtc.org>
+    Cr-Original-Commit-Position: refs/heads/master@{#21735}
+    Reviewed-on: https://webrtc-review.googlesource.com/43863
+    Reviewed-by: Stefan Holmer <stefan@webrtc.org>
+    Cr-Commit-Position: refs/branch-heads/65@{#8}
+    Cr-Branched-From: 3ac67a736bb200ecf7c116a88b2f8d5c542973c8-refs/heads/master@{#21637}
+
 - 61.4.0.0
 
 commit 371062bf35921ebeb33b3a66cdf58d1028d8e9a9
